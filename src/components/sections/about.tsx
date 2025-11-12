@@ -5,12 +5,12 @@ export default function AboutSection() {
         <section id="founder" className="py-16 lg:py-24 bg-primary/5">
             <div className="container mx-auto px-4 md:px-6">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
-                    <div className="relative h-96 md:h-auto md:aspect-[4/5] rounded-lg overflow-hidden shadow-lg order-last md:order-first">
+                    <div className="relative h-96 md:h-[500px] rounded-lg overflow-hidden shadow-lg order-last md:order-first">
                         <Image
                             src="https://res.cloudinary.com/doourcehz/image/upload/v1762927865/IMG_20251112_113907_dng2b6.jpg"
                             alt="Founder of Tirupati Universe Electronics"
                             fill
-                            className="object-cover object-top"
+                            className="object-contain object-center"
                         />
                     </div>
                     <div className="text-center md:text-left">

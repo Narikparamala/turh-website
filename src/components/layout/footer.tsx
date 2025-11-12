@@ -35,7 +35,7 @@ export default function Footer() {
           <ul className="space-y-4 text-sm">
             <li className="flex items-start gap-3">
               <MapPin className="h-5 w-5 mt-0.5 text-primary flex-shrink-0" />
-              <span className="text-muted-foreground">123 Electronics Street, Tirupati, Andhra Pradesh, 517501</span>
+              <span className="text-muted-foreground">Universe Electronic Services, Near Ramanuja Circle, Tirupati, Andhra Pradesh 517501</span>
             </li>
             <li className="flex items-center gap-3">
               <Phone className="h-5 w-5 text-primary" />

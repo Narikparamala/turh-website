@@ -1,11 +1,7 @@
-import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Card, CardContent } from '@/components/ui/card';
 import { Phone, MessageCircle, MapPin, Clock } from 'lucide-react';
 
 export default function ContactSection() {
-    const mapImage = PlaceHolderImages.find(p => p.id === 'contact-map');
-    
     return (
         <section id="contact" className="py-16 lg:py-24 bg-background">
             <div className="container mx-auto px-4 md:px-6">
@@ -24,7 +20,7 @@ export default function ContactSection() {
                                     <MapPin className="h-6 w-6 mt-1 text-primary flex-shrink-0" />
                                     <div>
                                         <h4 className='font-semibold'>Our Address</h4>
-                                        <p className="text-muted-foreground">123 Electronics Street, Tirupati, Andhra Pradesh, 517501</p>
+                                        <p className="text-muted-foreground">Universe Electronic Services, Near Ramanuja Circle, Tirupati, Andhra Pradesh 517501</p>
                                     </div>
                                 </li>
                                 <li className="flex items-start gap-4">
@@ -52,15 +48,14 @@ export default function ContactSection() {
                         </CardContent>
                     </Card>
                     <div className="relative rounded-lg overflow-hidden shadow-lg min-h-[300px] md:min-h-full">
-                        {mapImage && (
-                            <Image
-                                src={mapImage.imageUrl}
-                                alt={mapImage.description}
-                                fill
-                                className="object-cover"
-                                data-ai-hint={mapImage.imageHint}
-                            />
-                        )}
+                       <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d242.35393411263576!2d79.43366339430212!3d13.617386003588582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d4b985fc5c213%3A0xd623cc319981a324!2sUniverse%20Electronic%20Services!5e0!3m2!1sen!2sin!4v1762931369441!5m2!1sen!2sin" 
+                        className="w-full h-full"
+                        style={{border:0}} 
+                        allowFullScreen
+                        loading="lazy" 
+                        referrerPolicy="no-referrer-when-downgrade">
+                       </iframe>
                     </div>
                 </div>
             </div>
