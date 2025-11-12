@@ -27,14 +27,17 @@ export default function ContactSection() {
                                     <Phone className="h-6 w-6 mt-1 text-primary flex-shrink-0" />
                                     <div>
                                         <h4 className='font-semibold'>Phone</h4>
-                                        <a href="tel:+911234567890" className="text-muted-foreground hover:text-primary transition-colors">+91 123-456-7890</a>
+                                        <div className='flex flex-col'>
+                                            <a href="tel:+919951523648" className="text-muted-foreground hover:text-primary transition-colors">9951523648</a>
+                                            <a href="tel:+918121210342" className="text-muted-foreground hover:text-primary transition-colors">8121210342</a>
+                                        </div>
                                     </div>
                                 </li>
                                 <li className="flex items-start gap-4">
                                     <MessageCircle className="h-6 w-6 mt-1 text-primary flex-shrink-0" />
                                     <div>
                                         <h4 className='font-semibold'>WhatsApp</h4>
-                                        <a href="https://wa.me/911234567890" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">Chat with us</a>
+                                        <a href="https://wa.me/919951523648" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">Chat with us</a>
                                     </div>
                                 </li>
                                 <li className="flex items-start gap-4">

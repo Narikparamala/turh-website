@@ -71,7 +71,7 @@ export default function BookingForm({ setOpen }: BookingFormProps) {
                 <FormItem><FormLabel>Full Name</FormLabel><FormControl><Input placeholder="John Doe" {...field} /></FormControl><FormMessage /></FormItem>
              )} />
              <FormField control={form.control} name="phone" render={({ field }) => (
-                <FormItem><FormLabel>Phone Number</FormLabel><FormControl><Input placeholder="9876543210" {...field} /></FormControl><FormMessage /></FormItem>
+                <FormItem><FormLabel>Phone Number</FormLabel><FormControl><Input placeholder="9951523648" {...field} /></FormControl><FormMessage /></FormItem>
              )} />
           </div>
           <FormField control={form.control} name="address" render={({ field }) => (
@@ -97,7 +97,7 @@ export default function BookingForm({ setOpen }: BookingFormProps) {
             <FormField control={form.control} name="timeSlot" render={({ field }) => (
                 <FormItem>
                     <FormLabel>Preferred Time Slot</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <Select onValuechange={field.onChange} defaultValue={field.value}>
                         <FormControl><SelectTrigger><SelectValue placeholder="Select a time" /></SelectTrigger></FormControl>
                         <SelectContent>
                             <SelectItem value="morning">Morning (9am - 12pm)</SelectItem>

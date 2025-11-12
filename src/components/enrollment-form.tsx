@@ -68,7 +68,7 @@ export default function EnrollmentForm({ setOpen }: EnrollmentFormProps) {
                         <FormItem><FormLabel>Parent/Guardian's Name</FormLabel><FormControl><Input placeholder="Sunita Kumar" {...field} /></FormControl><FormMessage /></FormItem>
                     )} />
                     <FormField control={form.control} name="phone" render={({ field }) => (
-                        <FormItem><FormLabel>Contact Phone</FormLabel><FormControl><Input placeholder="9876543210" type="tel" {...field} /></FormControl><FormMessage /></FormItem>
+                        <FormItem><FormLabel>Contact Phone</FormLabel><FormControl><Input placeholder="9951523648" type="tel" {...field} /></FormControl><FormMessage /></FormItem>
                     )} />
                     <FormField control={form.control} name="email" render={({ field }) => (
                         <FormItem><FormLabel>Contact Email</FormLabel><FormControl><Input placeholder="you@example.com" type="email" {...field} /></FormControl><FormMessage /></FormItem>

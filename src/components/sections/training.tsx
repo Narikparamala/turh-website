@@ -19,7 +19,10 @@ export default function TrainingSection() {
                                 Build Your Future in Electronics
                             </h2>
                             <p className="mt-4 text-lg text-muted-foreground">
-                                Our apprenticeship program is designed to equip teenagers with practical, in-demand skills for a successful career in electronics repair.
+                                Our unique apprenticeship program is designed to equip teenagers with practical, in-demand skills for a successful career in electronics repair. Learn directly from Raju and gain real-world experience.
+                            </p>
+                            <p className="mt-4 text-muted-foreground">
+                                Students can join for a day or a week to see the work firsthand, based on parental agreement. It's a great opportunity to explore a skilled trade.
                             </p>
                             <div className="mt-8">
                                <DialogTrigger asChild>
@@ -42,7 +45,7 @@ export default function TrainingSection() {
                                         <CalendarDays className="h-5 w-5 mr-3 text-primary flex-shrink-0" /> Duration & Schedule
                                     </AccordionTrigger>
                                     <AccordionContent className="text-muted-foreground pl-10">
-                                        The program runs for 6 months with flexible batch timings available on weekdays and weekends to accommodate school schedules.
+                                        The program runs for 6 months with flexible batch timings available on weekdays and weekends to accommodate school schedules. Short-term experiences (a day or a week) are also available.
                                     </AccordionContent>
                                 </AccordionItem>
                                 <AccordionItem value="item-3">
