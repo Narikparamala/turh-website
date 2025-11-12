@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function AboutSection() {
     return (
-        <section id="about" className="py-16 lg:py-24 bg-primary/5">
+        <section id="founder" className="py-16 lg:py-24 bg-primary/5">
             <div className="container mx-auto px-4 md:px-6">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div className="relative h-96 md:h-auto md:aspect-[4/5] rounded-lg overflow-hidden shadow-lg order-last md:order-first">
