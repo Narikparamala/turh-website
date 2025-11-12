@@ -1,7 +1,7 @@
 "use client";
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { Menu, Wrench } from 'lucide-react';
 import React from 'react';
 import BookingForm from '@/components/booking-form';
@@ -19,6 +19,7 @@ const navLinks = [
 export default function Header() {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [isBookingOpen, setIsBookingOpen] = React.useState(false);
+  const [isSheetOpen, setIsSheetOpen] = React.useState(false);
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -56,7 +57,7 @@ export default function Header() {
             <DialogTrigger asChild>
                 <Button variant="destructive">Book a Repair</Button>
             </DialogTrigger>
-            <Sheet>
+            <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
               <SheetTrigger asChild>
                 <Button variant="outline" size="icon" className="md:hidden">
                   <Menu className="h-6 w-6" />
@@ -64,21 +65,28 @@ export default function Header() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right">
+                <SheetHeader>
+                   <SheetTitle>
+                     <Link href="/" className="flex items-center gap-2 font-bold text-lg text-primary">
+                        <Wrench className="h-6 w-6" />
+                        Tirupati Universe
+                      </Link>
+                   </SheetTitle>
+                   <SheetDescription>
+                     Navigate through our services and offerings.
+                   </SheetDescription>
+                </SheetHeader>
                 <div className="grid gap-4 py-6">
-                  <Link href="/" className="flex items-center gap-2 font-bold text-lg text-primary">
-                    <Wrench className="h-6 w-6" />
-                    Tirupati Universe
-                  </Link>
                   <nav className="grid gap-2">
                     {navLinks.map((link) => (
-                       <SheetTrigger asChild key={link.name}>
-                        <Link
+                       <Link
+                          key={link.name}
                           href={link.href}
+                          onClick={() => setIsSheetOpen(false)}
                           className="block rounded-md px-3 py-2 text-base font-medium text-foreground/80 hover:bg-muted hover:text-primary"
                         >
                           {link.name}
                         </Link>
-                      </SheetTrigger>
                     ))}
                   </nav>
                 </div>
