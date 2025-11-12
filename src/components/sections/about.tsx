@@ -8,7 +8,7 @@ export default function AboutSection() {
                     <div className="relative h-96 md:h-[500px] rounded-lg overflow-hidden shadow-lg order-last md:order-first">
                         <Image
                             src="https://res.cloudinary.com/doourcehz/image/upload/v1762931696/IMG_20251112_124343_w1fpwx.jpg"
-                            alt="Founder of Tirupati Universe Electronics"
+                            alt="Founder of Tirupati Universal Repair Hub"
                             fill
                             className="object-contain object-center"
                         />
@@ -17,9 +17,9 @@ export default function AboutSection() {
                         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline text-primary">
                             Meet Our Founder
                         </h2>
-                        <h3 className="text-xl font-semibold mt-2 text-foreground">Srinivas M.</h3>
+                        <h3 className="text-xl font-semibold mt-2 text-foreground">Raju</h3>
                         <p className="mt-4 text-lg text-muted-foreground max-w-xl mx-auto md:mx-0">
-                            With over 20 years of hands-on experience in the electronics repair industry, Srinivas founded Tirupati Universe Electronics with a simple mission: to provide honest, reliable, and expert service to the community.
+                            With over 20 years of hands-on experience in the electronics repair industry, Raju founded Tirupati Universal Repair Hub with a simple mission: to provide honest, reliable, and expert service to the community.
                         </p>
                         <p className="mt-4 text-muted-foreground max-w-xl mx-auto md:mx-0">
                             His passion for technology and commitment to quality have been the driving force behind our success. He is also dedicated to mentoring the next generation of technicians through our unique apprenticeship program.

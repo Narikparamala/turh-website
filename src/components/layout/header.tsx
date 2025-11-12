@@ -10,7 +10,6 @@ import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 const navLinks = [
   { name: 'Services', href: '#services' },
   { name: 'Founder', href: '#founder' },
-  { name: 'AI Diagnostics', href: '#ai-diagnostics' },
   { name: 'Training', href: '#training' },
   { name: 'Gallery', href: '#gallery' },
   { name: 'Contact', href: '#contact' },
@@ -29,6 +28,8 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const closeSheet = () => setIsSheetOpen(false);
+
   return (
     <Dialog open={isBookingOpen} onOpenChange={setIsBookingOpen}>
       <header
@@ -39,8 +40,8 @@ export default function Header() {
         <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
           <Link href="/" className="flex items-center gap-2 font-bold text-lg text-primary">
             <Wrench className="h-6 w-6" />
-            <span className='hidden sm:inline'>Tirupati Universe Electronics</span>
-            <span className='sm:hidden font-semibold'>T.U.E.</span>
+            <span className='hidden sm:inline'>Tirupati Universal Repair Hub</span>
+            <span className='sm:hidden font-semibold'>T.U.R.H.</span>
           </Link>
           <nav className="hidden items-center gap-6 md:flex">
             {navLinks.map((link) => (
@@ -67,9 +68,9 @@ export default function Header() {
               <SheetContent side="right">
                 <SheetHeader>
                    <SheetTitle>
-                     <Link href="/" className="flex items-center gap-2 font-bold text-lg text-primary">
+                     <Link href="/" onClick={closeSheet} className="flex items-center gap-2 font-bold text-lg text-primary">
                         <Wrench className="h-6 w-6" />
-                        Tirupati Universe
+                        Tirupati Universal Repair Hub
                       </Link>
                    </SheetTitle>
                    <SheetDescription>
@@ -82,7 +83,7 @@ export default function Header() {
                        <Link
                           key={link.name}
                           href={link.href}
-                          onClick={() => setIsSheetOpen(false)}
+                          onClick={closeSheet}
                           className="block rounded-md px-3 py-2 text-base font-medium text-foreground/80 hover:bg-muted hover:text-primary"
                         >
                           {link.name}

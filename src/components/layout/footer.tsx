@@ -8,13 +8,13 @@ export default function Footer() {
         <div className="flex flex-col items-start gap-4">
           <Link href="/" className="flex items-center gap-2 font-bold text-xl text-primary">
             <Wrench className="h-7 w-7" />
-            Tirupati Universe
+            Tirupati Universal Repair Hub
           </Link>
           <p className="text-muted-foreground text-sm max-w-xs">
             Your trusted partner for all electronic repairs. Quality service, guaranteed.
           </p>
           <div className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} Tirupati Universe Electronics.
+            &copy; {new Date().getFullYear()} Tirupati Universal Repair Hub.
           </div>
         </div>
         
@@ -25,7 +25,6 @@ export default function Footer() {
             <li><Link href="#founder" className="text-sm text-muted-foreground hover:text-primary transition-colors">Founder</Link></li>
             <li><Link href="#training" className="text-sm text-muted-foreground hover:text-primary transition-colors">Training Program</Link></li>
             <li><Link href="#gallery" className="text-sm text-muted-foreground hover:text-primary transition-colors">Gallery</Link></li>
-            <li><Link href="#ai-diagnostics" className="text-sm text-muted-foreground hover:text-primary transition-colors">AI Diagnostics</Link></li>
              <li><Link href="#contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">Contact Us</Link></li>
           </ul>
         </div>

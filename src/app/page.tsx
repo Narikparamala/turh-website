@@ -1,7 +1,6 @@
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import HeroSection from '@/components/sections/hero';
-import AiDiagnosticSection from '@/components/sections/ai-diagnostic';
 import ServicesSection from '@/components/sections/services';
 import AboutSection from '@/components/sections/about';
 import TrainingSection from '@/components/sections/training';
@@ -16,7 +15,6 @@ export default function Home() {
         <HeroSection />
         <ServicesSection />
         <AboutSection />
-        <AiDiagnosticSection />
         <TrainingSection />
         <GallerySection />
         <ContactSection />
