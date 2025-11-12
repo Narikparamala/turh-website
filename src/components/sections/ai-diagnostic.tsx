@@ -1,6 +1,6 @@
 "use client";
 
-import { useFormState, useFormStatus } from 'react-dom';
+import { useActionState, useOptimistic } from 'react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -14,34 +14,25 @@ const initialState = {
 };
 
 function SubmitButton() {
-  const { pending } = useFormStatus();
+  // `useActionState` doesn't have a `pending` state, so we can't use `useFormStatus`
+  // We'll manage a simple pending state manually.
   return (
-    <Button type="submit" disabled={pending} className="w-full sm:w-auto" variant="destructive">
-      {pending ? (
-        <>
-          <Bot className="mr-2 h-4 w-4 animate-spin" />
-          Diagnosing...
-        </>
-      ) : (
-        <>
-          <Lightbulb className="mr-2 h-4 w-4" />
-          Get Advice
-        </>
-      )}
+    <Button type="submit" className="w-full sm:w-auto" variant="destructive">
+      <Lightbulb className="mr-2 h-4 w-4" />
+      Get Advice
     </Button>
   );
 }
 
 export default function AiDiagnosticSection() {
-  const [state, formAction] = useFormState(getDiagnostic, initialState);
+  const [state, formAction, isPending] = useActionState(getDiagnostic, initialState);
   const formRef = useRef<HTMLFormElement>(null);
-  const { pending } = useFormStatus();
 
   useEffect(() => {
-    if (state.data && !pending) {
-        formRef.current?.reset();
+    if (!isPending && (state.data || state.error)) {
+      formRef.current?.reset();
     }
-  }, [state.data, pending])
+  }, [isPending, state.data, state.error]);
 
   return (
     <section id="ai-diagnostics" className="py-16 lg:py-24 bg-primary/5">
@@ -74,7 +65,19 @@ export default function AiDiagnosticSection() {
                         )}
                     </CardContent>
                     <CardFooter>
-                        <SubmitButton />
+                         <Button type="submit" disabled={isPending} className="w-full sm:w-auto" variant="destructive">
+                            {isPending ? (
+                                <>
+                                <Bot className="mr-2 h-4 w-4 animate-spin" />
+                                Diagnosing...
+                                </>
+                            ) : (
+                                <>
+                                <Lightbulb className="mr-2 h-4 w-4" />
+                                Get Advice
+                                </>
+                            )}
+                        </Button>
                     </CardFooter>
                 </form>
             </Card>
@@ -89,15 +92,26 @@ export default function AiDiagnosticSection() {
                         <CardDescription>Our AI will suggest steps you can try to fix the problem yourself.</CardDescription>
                     </CardHeader>
                     <CardContent className="flex-grow">
-                        {state.data ? (
+                        {isPending && !state.data && (
+                             <div className="flex flex-col items-center justify-center text-center text-muted-foreground p-8 rounded-lg border-2 border-dashed h-full">
+                                <Bot className="h-12 w-12 mb-4 animate-pulse"/>
+                                <p>Diagnosing your issue...</p>
+                            </div>
+                        )}
+
+                        {!isPending && state.data && (
                              <div className="text-sm text-foreground whitespace-pre-wrap bg-background p-4 rounded-md border">{state.data}</div>
-                        ) : state.error ? (
+                        )}
+                        
+                        {!isPending && state.error && (
                             <div className="flex flex-col items-center justify-center text-center text-destructive p-8 rounded-lg border-2 border-dashed border-destructive/50 h-full bg-destructive/5">
                                 <ServerCrash className="h-12 w-12 mb-4"/>
                                 <h3 className="font-semibold mb-2">An Error Occurred</h3>
                                 <p className="text-sm">{state.error}</p>
                             </div>
-                        ) : (
+                        )}
+                        
+                        {!isPending && !state.data && !state.error && (
                             <div className="flex flex-col items-center justify-center text-center text-muted-foreground p-8 rounded-lg border-2 border-dashed h-full">
                                 <Bot className="h-12 w-12 mb-4"/>
                                 <p>Your diagnostic results will appear here.</p>
