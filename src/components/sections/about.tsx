@@ -7,7 +7,7 @@ export default function AboutSection() {
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div className="relative h-96 md:h-[500px] rounded-lg overflow-hidden shadow-lg order-last md:order-first">
                         <Image
-                            src="https://res.cloudinary.com/doourcehz/image/upload/v1762927865/IMG_20251112_113907_dng2b6.jpg"
+                            src="https://res.cloudinary.com/doourcehz/image/upload/v1762931696/IMG_20251112_124343_w1fpwx.jpg"
                             alt="Founder of Tirupati Universe Electronics"
                             fill
                             className="object-contain object-center"
