@@ -1,3 +1,46 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero",
+      "description": "Technician repairing electronics",
+      "imageUrl": "https://images.unsplash.com/photo-1563770660941-20978e870e26?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZWxlY3Ryb25pY3MlMjByZXBhaXIlMjB0ZWNobmljaWFufGVufDB8fHx8MTc2MjkyNjExNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "electronics repair technician"
+    },
+    {
+      "id": "gallery-1",
+      "description": "Close-up of a circuit board being repaired",
+      "imageUrl": "https://images.unsplash.com/photo-1631375937044-6dd5beac01d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjaXJjdWl0JTIwYm9hcmR8ZW58MHx8fHwxNzYyODc5NjE4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "circuit board"
+    },
+    {
+      "id": "gallery-2",
+      "description": "A well-organized workshop with tools",
+      "imageUrl": "https://images.unsplash.com/photo-1605713839000-5e2444b92f14?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx3b3Jrc2hvcCUyMHRvb2xzfGVufDB8fHx8MTc2Mjg3NTYzNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "workshop tools"
+    },
+    {
+      "id": "gallery-3",
+      "description": "Technician repairing an air conditioner",
+      "imageUrl": "https://images.unsplash.com/photo-1642749776312-aa42ce20c9f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxBQyUyMHJlcGFpcnxlbnwwfHx8fDE3NjI4MzU0Mjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "AC repair"
+    },
+    {
+      "id": "gallery-4",
+      "description": "A repaired television showing a clear picture",
+      "imageUrl": "https://images.unsplash.com/photo-1645736563824-c30a3c341fe7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx0ZWxldmlzaW9uJTIwc2NyZWVufGVufDB8fHx8MTc2MjgwODg2MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "television screen"
+    },
+    {
+      "id": "gallery-5",
+      "description": "Students in a training program learning electronics",
+      "imageUrl": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzdHVkZW50cyUyMGxlYXJuaW5nfGVufDB8fHx8MTc2Mjg0MzY0OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "students learning"
+    },
+    {
+      "id": "contact-map",
+      "description": "A map showing the location of the shop",
+      "imageUrl": "https://images.unsplash.com/photo-1717343824623-06293a62a70d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjaXR5JTIwbWFwfGVufDB8fHx8MTc2MjgxODc1Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "city map"
+    }
+  ]
 }
