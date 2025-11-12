@@ -3,6 +3,7 @@ import Footer from '@/components/layout/footer';
 import HeroSection from '@/components/sections/hero';
 import AiDiagnosticSection from '@/components/sections/ai-diagnostic';
 import ServicesSection from '@/components/sections/services';
+import AboutSection from '@/components/sections/about';
 import TrainingSection from '@/components/sections/training';
 import GallerySection from '@/components/sections/gallery';
 import ContactSection from '@/components/sections/contact';
@@ -13,8 +14,9 @@ export default function Home() {
       <Header />
       <main className="flex-grow">
         <HeroSection />
-        <AiDiagnosticSection />
         <ServicesSection />
+        <AboutSection />
+        <AiDiagnosticSection />
         <TrainingSection />
         <GallerySection />
         <ContactSection />

@@ -9,6 +9,7 @@ import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 
 const navLinks = [
   { name: 'Services', href: '#services' },
+  { name: 'About', href: '#about' },
   { name: 'AI Diagnostics', href: '#ai-diagnostics' },
   { name: 'Training', href: '#training' },
   { name: 'Gallery', href: '#gallery' },
