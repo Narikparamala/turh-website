@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { Roboto, Oswald } from 'next/font/google';
+import { ThemeProvider } from '@/components/theme-provider';
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -32,8 +33,15 @@ export default function RootLayout({
   return (
     <html lang="en" className={`scroll-smooth ${roboto.variable} ${oswald.variable}`} suppressHydrationWarning>
       <body className="font-body bg-background text-foreground antialiased">
-        {children}
-        <Toaster />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );

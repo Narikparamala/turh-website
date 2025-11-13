@@ -2,10 +2,12 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, Wrench } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import React from 'react';
 import BookingForm from '@/components/booking-form';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import Image from 'next/image';
+import { ModeToggle } from '@/components/mode-toggle';
 
 const navLinks = [
   { name: 'Services', href: '#services' },
@@ -39,7 +41,7 @@ export default function Header() {
       >
         <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
           <Link href="/" className="flex items-center gap-2 font-bold text-lg text-primary">
-            <Wrench className="h-6 w-6" />
+             <Image src="https://res.cloudinary.com/doourcehz/image/upload/v1763010912/download_2_a9dg1h.jpg" alt="Tirupati Universal Repair Hub Logo" width={50} height={50} className="rounded-full"/>
             <span className='hidden sm:inline'>Tirupati Universal Repair Hub</span>
             <span className='sm:hidden font-semibold'>T.U.R.H.</span>
           </Link>
@@ -55,6 +57,7 @@ export default function Header() {
             ))}
           </nav>
           <div className="flex items-center gap-2 sm:gap-4">
+            <ModeToggle />
             <DialogTrigger asChild>
                 <Button variant="destructive">Book a Repair</Button>
             </DialogTrigger>
@@ -69,12 +72,12 @@ export default function Header() {
                 <SheetHeader>
                    <SheetTitle>
                      <Link href="/" onClick={closeSheet} className="flex items-center gap-2 font-bold text-lg text-primary">
-                        <Wrench className="h-6 w-6" />
-                        Tirupati Universal Repair Hub
+                        <Image src="https://res.cloudinary.com/doourcehz/image/upload/v1763010912/download_2_a9dg1h.jpg" alt="Tirupati Universal Repair Hub Logo" width={40} height={40} className="rounded-full"/>
+                        T.U.R.H.
                       </Link>
                    </SheetTitle>
                    <SheetDescription>
-                     Navigate through our services and offerings.
+                     Navigation Menu
                    </SheetDescription>
                 </SheetHeader>
                 <div className="grid gap-4 py-6">

@@ -1,19 +1,20 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { AirVent, Tv2, Refrigerator, WashingMachine, Wrench } from 'lucide-react';
+import { WashingMachine, Wrench } from 'lucide-react';
+import Image from 'next/image';
 
 const services = [
   {
-    icon: <AirVent className="h-10 w-10 text-primary" />,
+    icon: <Image src="https://res.cloudinary.com/doourcehz/image/upload/v1763011712/download_7_mhzvet.jpg" alt="AC Repair" width={40} height={40} className="mx-auto" />,
     title: 'AC Repair',
     description: 'Comprehensive AC servicing, installation, and repair for all brands.',
   },
   {
-    icon: <Tv2 className="h-10 w-10 text-primary" />,
+    icon: <Image src="https://res.cloudinary.com/doourcehz/image/upload/v1763011379/download_5_tdcpgv.jpg" alt="TV Repair" width={40} height={40} className="mx-auto" />,
     title: 'TV Repair',
     description: 'Expert repairs for LED, LCD, OLED, and Plasma TVs.',
   },
   {
-    icon: <Refrigerator className="h-10 w-10 text-primary" />,
+    icon: <Image src="https://res.cloudinary.com/doourcehz/image/upload/v1763011475/download_6_qpuemv.jpg" alt="Fridge Repair" width={40} height={40} className="mx-auto" />,
     title: 'Fridge Repair',
     description: 'Solutions for cooling issues, compressor problems, and more.',
   },
