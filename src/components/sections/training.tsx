@@ -1,72 +1,118 @@
 "use client"
 import React from 'react';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import EnrollmentForm from '@/components/enrollment-form';
-import { GraduationCap, ShieldCheck, CalendarDays, IndianRupee } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { GraduationCap, ShieldCheck, CalendarDays, CheckCircle, User, Users } from 'lucide-react';
+
+const programOptions = [
+    {
+        title: "1-Day Experience",
+        description: "Perfect for exploring the field. Your teenager accompanies Raju for a full working day to test their interest.",
+        idealFor: "Career exploration, school projects."
+    },
+    {
+        title: "1-Week Intensive",
+        description: "Comprehensive hands-on training covering multiple appliances and repair techniques.",
+        idealFor: "Building foundational skills, summer programs."
+    },
+    {
+        title: "Custom Duration",
+        description: "A flexible schedule designed around your availability (2 days, 2 weeks, or longer). Parents decide what's best.",
+        idealFor: "Specific learning goals, extended mentorship."
+    }
+];
+
+const whoCanJoin = [
+    {
+        icon: <Users className="h-8 w-8 text-primary" />,
+        title: "For Parents",
+        description: "Enroll your teenager and discuss the training schedule directly with Raju. We ensure a safe and educational environment, supervised or independent."
+    },
+    {
+        icon: <User className="h-8 w-8 text-primary" />,
+        title: "For Teenagers",
+        description: "If you're passionate about electronics, reach out directly! We welcome motivated individuals ready to develop valuable, real-world skills."
+    }
+]
 
 export default function TrainingSection() {
     const [isEnrollmentOpen, setIsEnrollmentOpen] = React.useState(false);
 
     return (
         <Dialog open={isEnrollmentOpen} onOpenChange={setIsEnrollmentOpen}>
-            <section id="training" className="py-16 lg:py-24 bg-background">
+            <section id="training" className="py-16 lg:py-24 bg-primary/5">
                 <div className="container mx-auto px-4 md:px-6">
-                    <div className="grid md:grid-cols-2 gap-12 items-center">
-                        <div>
-                            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline text-primary">
-                                Build Your Future in Electronics
-                            </h2>
-                            <p className="mt-4 text-lg text-muted-foreground">
-                                Our unique apprenticeship program is designed to equip teenagers with practical, in-demand skills for a successful career in electronics repair. Learn directly from Raju and gain real-world experience.
-                            </p>
-                            <p className="mt-4 text-muted-foreground">
-                                Students can join for a day or a week to see the work firsthand, based on parental agreement. It's a great opportunity to explore a skilled trade.
-                            </p>
-                            <div className="mt-8">
-                               <DialogTrigger asChild>
-                                    <Button size="lg" variant="destructive">Enroll Now</Button>
-                                </DialogTrigger>
-                            </div>
-                        </div>
-                        <div>
-                            <Accordion type="single" collapsible className="w-full" defaultValue="item-1">
-                                <AccordionItem value="item-1">
-                                    <AccordionTrigger className="text-lg font-semibold hover:no-underline">
-                                        <GraduationCap className="h-5 w-5 mr-3 text-primary flex-shrink-0" /> Curriculum Details
-                                    </AccordionTrigger>
-                                    <AccordionContent className="text-muted-foreground pl-10">
-                                        Hands-on training covering diagnostics, component-level repairs, and troubleshooting for ACs, TVs, refrigerators, and more. Includes soft skills training for customer interaction.
-                                    </AccordionContent>
-                                </AccordionItem>
-                                <AccordionItem value="item-2">
-                                    <AccordionTrigger className="text-lg font-semibold hover:no-underline">
-                                        <CalendarDays className="h-5 w-5 mr-3 text-primary flex-shrink-0" /> Duration & Schedule
-                                    </AccordionTrigger>
-                                    <AccordionContent className="text-muted-foreground pl-10">
-                                        The program runs for 6 months with flexible batch timings available on weekdays and weekends to accommodate school schedules. Short-term experiences (a day or a week) are also available.
-                                    </AccordionContent>
-                                </AccordionItem>
-                                <AccordionItem value="item-3">
-                                    <AccordionTrigger className="text-lg font-semibold hover:no-underline">
-                                        <IndianRupee className="h-5 w-5 mr-3 text-primary flex-shrink-0" /> Fees
-                                    </AccordionTrigger>
-                                    <AccordionContent className="text-muted-foreground pl-10">
-                                        Affordable fee structure with installment options available. Please contact us for detailed fee information and scholarship opportunities.
-                                    </AccordionContent>
-                                </AccordionItem>
-                                <AccordionItem value="item-4">
-                                    <AccordionTrigger className="text-lg font-semibold hover:no-underline">
-                                        <ShieldCheck className="h-5 w-5 mr-3 text-primary flex-shrink-0" /> Safety & Consent
-                                    </AccordionTrigger>
-                                    <AccordionContent className="text-muted-foreground pl-10">
-                                        We maintain a safe and supervised learning environment. Parental consent is mandatory for all applicants under the age of 18. All safety protocols are strictly followed.
-                                    </AccordionContent>
-                                </AccordionItem>
-                            </Accordion>
-                        </div>
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline text-primary">
+                            Mentorship & Training Program
+                        </h2>
+                        <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
+                            Empower the next generation! Raju is now accepting teenagers for hands-on electronics repair training. Parents can enroll their children, or teenagers can reach out directly.
+                        </p>
                     </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                        {whoCanJoin.map(item => (
+                             <Card key={item.title}>
+                                <CardHeader className="flex flex-row items-center gap-4">
+                                    {item.icon}
+                                    <CardTitle>{item.title}</CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <p className="text-muted-foreground">{item.description}</p>
+                                </CardContent>
+                            </Card>
+                        ))}
+                    </div>
+
+                    <div className="mb-12">
+                        <h3 className="text-2xl font-bold text-center mb-8 text-primary/90 font-headline">Program Options</h3>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            {programOptions.map(option => (
+                                <Card key={option.title} className="flex flex-col">
+                                    <CardHeader>
+                                        <CardTitle>{option.title}</CardTitle>
+                                    </CardHeader>
+                                    <CardContent className="flex-grow">
+                                        <p className="text-muted-foreground mb-4">{option.description}</p>
+                                        <p className="text-sm font-semibold"><strong>Great for:</strong> {option.idealFor}</p>
+                                    </CardContent>
+                                </Card>
+                            ))}
+                        </div>
+                         <p className="text-center mt-6 text-sm text-muted-foreground">
+                            Note: Parents decide the duration and schedule. Contact Raju to discuss what works best.
+                        </p>
+                    </div>
+                    
+                    <div className="text-center">
+                         <h3 className="text-2xl font-bold text-center mb-8 text-primary/90 font-headline">What You'll Gain</h3>
+                         <div className="max-w-2xl mx-auto grid grid-cols-2 gap-4 text-left mb-8">
+                            <div className="flex items-start gap-3">
+                                <CheckCircle className="h-5 w-5 mt-1 text-green-600 flex-shrink-0"/>
+                                <span className="text-muted-foreground">Hands-on training with real repairs</span>
+                            </div>
+                             <div className="flex items-start gap-3">
+                                <CheckCircle className="h-5 w-5 mt-1 text-green-600 flex-shrink-0"/>
+                                <span className="text-muted-foreground">Learn from 12+ years of experience</span>
+                            </div>
+                             <div className="flex items-start gap-3">
+                                <CheckCircle className="h-5 w-5 mt-1 text-green-600 flex-shrink-0"/>
+                                <span className="text-muted-foreground">Flexible program durations</span>
+                            </div>
+                             <div className="flex items-start gap-3">
+                                <CheckCircle className="h-5 w-5 mt-1 text-green-600 flex-shrink-0"/>
+                                <span className="text-muted-foreground">Certificate of completion</span>
+                            </div>
+                         </div>
+
+                        <DialogTrigger asChild>
+                            <Button size="lg" variant="destructive">Enroll Now & Discuss Training</Button>
+                        </DialogTrigger>
+                    </div>
+
                 </div>
             </section>
             <DialogContent>
