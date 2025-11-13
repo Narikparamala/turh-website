@@ -16,22 +16,33 @@ const navLinks = [
 ];
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = React.useState(false);
   const [isSheetOpen, setIsSheetOpen] = React.useState(false);
+  const [isVisible, setIsVisible] = React.useState(true);
+  const [lastScrollY, setLastScrollY] = React.useState(0);
 
   React.useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down
+        setIsVisible(false);
+      } else {
+        // Scrolling up
+        setIsVisible(true);
+      }
+      setLastScrollY(currentScrollY);
     };
-    window.addEventListener('scroll', handleScroll);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY]);
+
 
   const closeSheet = () => setIsSheetOpen(false);
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-shadow duration-300 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b`}
+      className={`sticky top-0 z-50 w-full transition-transform duration-300 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2 font-bold text-lg text-primary">
