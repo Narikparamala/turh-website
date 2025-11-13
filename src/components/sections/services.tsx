@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { WashingMachine, Wrench } from 'lucide-react';
+import { Wrench } from 'lucide-react';
 import Image from 'next/image';
 
 const services = [
@@ -19,7 +19,7 @@ const services = [
     description: 'Solutions for cooling issues, compressor problems, and more.',
   },
   {
-    icon: <WashingMachine className="h-10 w-10 text-primary" />,
+    icon: <Image src="https://res.cloudinary.com/doourcehz/image/upload/v1763011253/download_4_jta167.jpg" alt="Washing Machine Repair" width={40} height={40} className="mx-auto" />,
     title: 'Washing Machine Repair',
     description: 'Top-load and front-load washing machine repairs and servicing.',
   },
