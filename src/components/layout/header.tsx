@@ -8,6 +8,7 @@ import Image from 'next/image';
 import { ModeToggle } from '@/components/mode-toggle';
 
 const navLinks = [
+  { name: 'Home', href: '/#home' },
   { name: 'Services', href: '/#services' },
   { name: 'Founder', href: '/#founder' },
   { name: 'Training', href: '/#training' },
