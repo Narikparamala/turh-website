@@ -105,7 +105,7 @@ export default function TrainingSection() {
                      </div>
 
                     <Button asChild size="lg" variant="destructive">
-                      <Link href="/book">Enroll or Inquire Now</Link>
+                      <Link href="/#contact">Enroll or Inquire Now</Link>
                     </Button>
                 </div>
 

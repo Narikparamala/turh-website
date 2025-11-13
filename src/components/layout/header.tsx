@@ -54,7 +54,7 @@ export default function Header() {
         <div className="flex items-center gap-2 sm:gap-4">
           <ModeToggle />
           <Button asChild variant="destructive">
-            <Link href="/book">Book a Repair</Link>
+            <Link href="/#contact">Book a Repair</Link>
           </Button>
           <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
             <SheetTrigger asChild>
