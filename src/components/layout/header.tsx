@@ -63,7 +63,7 @@ export default function Header() {
         </nav>
         <div className="flex items-center gap-2 sm:gap-4">
           <ModeToggle />
-          <Button asChild variant="destructive">
+          <Button asChild variant="destructive" className="hidden sm:inline-flex">
             <Link href="/#contact">Book a Repair</Link>
           </Button>
           <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
@@ -98,6 +98,9 @@ export default function Header() {
                       </Link>
                   ))}
                 </nav>
+                 <Button asChild variant="destructive" onClick={closeSheet}>
+                    <Link href="/#contact">Book a Repair</Link>
+                </Button>
               </div>
             </SheetContent>
           </Sheet>

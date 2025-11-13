@@ -160,7 +160,7 @@ export default function TrainingSection() {
                 
                 <div className="text-center">
                      <h3 className="text-2xl font-bold text-center mb-8 text-primary/90 font-headline">What You'll Gain</h3>
-                     <div className="max-w-2xl mx-auto grid grid-cols-2 gap-4 text-left mb-8">
+                     <div className="max-w-2xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4 text-left mb-8">
                         <div className="flex items-start gap-3">
                             <CheckCircle className="h-5 w-5 mt-1 text-green-600 flex-shrink-0"/>
                             <span className="text-muted-foreground">Hands-on training with real repairs</span>
@@ -278,7 +278,7 @@ export default function TrainingSection() {
                                 <FormItem className="space-y-3">
                                     <FormLabel>I am a...</FormLabel>
                                     <FormControl>
-                                    <RadioGroup onValueChange={field.onChange} defaultValue={field.value} className="flex gap-4">
+                                    <RadioGroup onValueChange={field.onChange} defaultValue={field.value} className="flex flex-col sm:flex-row gap-4">
                                         <FormItem className="flex items-center space-x-3 space-y-0">
                                         <FormControl><RadioGroupItem value="parent" /></FormControl>
                                         <FormLabel className="font-normal">Parent/Guardian</FormLabel>

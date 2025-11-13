@@ -40,7 +40,7 @@ export default function ServicesSection() {
             We provide professional, high-quality repair services for a wide range of home and commercial electronics.
           </p>
         </div>
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
             <Card key={index} className="flex flex-col items-center text-center p-6 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
               <CardHeader className="p-0">
