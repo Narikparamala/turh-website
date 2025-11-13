@@ -41,7 +41,7 @@ export default function Header() {
           <span className='hidden sm:inline'>Tirupati Universal Repair Hub</span>
           <span className='sm:hidden font-semibold'>T.U.R.H.</span>
         </Link>
-        <nav className="hidden items-center gap-6 md:flex">
+        <nav className="hidden items-center gap-6 md:flex mx-6">
           {navLinks.map((link) => (
             <Link
               key={link.name}
