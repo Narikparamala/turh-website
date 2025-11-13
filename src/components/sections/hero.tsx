@@ -22,14 +22,14 @@ export default function HeroSection() {
                         </p>
                         <div className="mt-6 flex flex-col gap-4 sm:flex-row justify-center md:justify-start">
                             <Button asChild size="lg" variant="destructive">
-                                <Link href="/book">Book a Repair</Link>
+                                <Link href="/#contact">Book a Repair</Link>
                             </Button>
                             <Button asChild size="lg" variant="outline">
-                                <Link href="#training">Join Our Training</Link>
+                                <Link href="/#training">Join Our Training</Link>
                             </Button>
                         </div>
                     </div>
-                    <div className="relative h-80 md:h-auto md:aspect-square">
+                    <div className="relative h-80 md:h-[450px] w-full">
                        {heroImage && <Image
                             src={heroImage.imageUrl}
                             alt={heroImage.description}
@@ -38,7 +38,6 @@ export default function HeroSection() {
                             data-ai-hint={heroImage.imageHint}
                             priority
                        />}
-                       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/10 to-transparent md:bg-gradient-to-r md:from-background"></div>
                     </div>
                 </div>
             </div>
