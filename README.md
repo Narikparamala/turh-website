@@ -48,19 +48,20 @@ To start the development server, run the following command. This will start the 
 npm run dev
 ```
 
-## Building for Production
+## Deployment to Netlify
 
-To create a production-ready build of the application, run the following command. This will generate an optimized build in the `.next` folder.
+This project is ready to be deployed on Netlify. Here’s how to do it:
 
-```sh
-npm run build
-```
-Netlify will typically run this command automatically when you deploy.
-
-## Deployment
-
-This project is ready to be deployed on any static hosting service that supports Next.js, such as **Netlify**, Vercel, or Firebase Hosting.
-
-For Netlify, you can connect your GitHub repository, and it will automatically detect the build settings.
-*   **Build Command:** `npm run build`
-*   **Publish Directory:** `.next`
+1.  **Push to GitHub:** Make sure all your code is pushed to a GitHub repository.
+2.  **Sign up/Log in to Netlify:** Go to [Netlify](https://www.netlify.com/) and create an account or log in.
+3.  **Create a New Site:** From your Netlify dashboard, click "Add new site" and choose "Import an existing project" from a Git provider.
+4.  **Connect to GitHub:** Select GitHub and authorize Netlify to access your repositories. Choose the repository for this project.
+5.  **Configure Build Settings:** Netlify will automatically detect that this is a Next.js project and configure the build settings for you. The standard settings are:
+    *   **Build Command:** `npm run build` or `next build`
+    *   **Publish Directory:** `.next`
+6.  **Deploy Site:** Click the "Deploy site" button. Netlify will start building and deploying your website.
+7.  **Change Your Site Name:** After deployment, Netlify will assign a random URL (e.g., `random-name-123.netlify.app`). To change it:
+    *   Go to your site's dashboard on Netlify.
+    *   Click on **"Site configuration"** or **"Domain settings"**.
+    *   Under "Site details", you'll see an option to **"Change site name"**.
+    *   Enter your desired name, like `turhraju`. If it's available, your new URL will be `https://turhraju.netlify.app`.
