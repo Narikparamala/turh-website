@@ -3,7 +3,6 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { CheckCircle, Users, User } from 'lucide-react';
-import Link from 'next/link';
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -13,7 +12,6 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { submitInquiry } from "@/lib/actions";
 import { useState } from "react";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
@@ -95,21 +93,42 @@ export default function TrainingSection() {
 
     async function onSubmit(data: InquiryFormValues) {
         setIsSubmitting(true);
-        const result = await submitInquiry(data);
-        if (result.success) {
-        toast({
-            title: "Success!",
-            description: result.message,
-        });
-        form.reset({ name: "", phone: "", inquiryType: data.inquiryType });
-        } else {
-        toast({
-            variant: "destructive",
-            title: "Error",
-            description: result.message || "Something went wrong. Please check your inputs and try again.",
-        });
+        
+        let messageBody = '';
+        if (data.inquiryType === 'repair') {
+            messageBody = `*New Repair Inquiry*\n\n` +
+                          `*Name:* ${data.name}\n` +
+                          `*Phone:* ${data.phone}\n` +
+                          `*Address:* ${data.address}\n` +
+                          `*Service:* ${data.service}\n` +
+                          `*Problem:* ${data.problem}\n` +
+                          `*Time Slot:* ${data.timeSlot}`;
+        } else if (data.inquiryType === 'training') {
+            messageBody = `*New Training Inquiry*\n\n` +
+                          `*I am a:* ${data.role}\n` +
+                          `*Name:* ${data.name}\n` +
+                          `*Phone:* ${data.phone}\n` +
+                          `*Message:* ${data.message}`;
         }
-        setIsSubmitting(false);
+
+        const whatsappNumber = "919951523648";
+        const encodedMessage = encodeURIComponent(messageBody);
+        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+        // Give user feedback
+        toast({
+            title: "Redirecting to WhatsApp...",
+            description: "Your message is being prepared.",
+        });
+
+        // Open WhatsApp in a new tab
+        window.open(whatsappUrl, '_blank');
+        
+        // Reset form after a short delay
+        setTimeout(() => {
+            form.reset({ name: "", phone: "", inquiryType: data.inquiryType });
+            setIsSubmitting(false);
+        }, 1000);
     }
 
     return (
@@ -180,7 +199,7 @@ export default function TrainingSection() {
                      </div>
                 </div>
 
-                 <Card className="max-w-4xl mx-auto mt-12">
+                 <Card className="max-w-4xl mx-auto mt-12" id="contact">
                     <CardHeader>
                         <CardTitle className="text-3xl font-bold tracking-tight text-primary">Enroll or Inquire Now</CardTitle>
                         <CardDescription>
