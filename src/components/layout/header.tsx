@@ -8,11 +8,11 @@ import Image from 'next/image';
 import { ModeToggle } from '@/components/mode-toggle';
 
 const navLinks = [
-  { name: 'Home', href: '/#home' },
-  { name: 'Services', href: '/#services' },
-  { name: 'Founder', href: '/#founder' },
-  { name: 'Training', href: '/#training' },
-  { name: 'Contact', href: '/#contact' },
+  { name: 'Home', href: '#home' },
+  { name: 'Services', href: '#services' },
+  { name: 'Founder', href: '#founder' },
+  { name: 'Training', href: '#training' },
+  { name: 'Contact', href: '#contact' },
 ];
 
 export default function Header() {
@@ -37,8 +37,16 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
-
+  const handleLinkClick = () => {
+    // We use a short timeout to allow the browser to navigate to the anchor
+    // before the sheet is closed, which can interrupt the navigation.
+    setTimeout(() => {
+      setIsSheetOpen(false);
+    }, 100);
+  };
+  
   const closeSheet = () => setIsSheetOpen(false);
+
 
   return (
     <header
@@ -64,7 +72,7 @@ export default function Header() {
         <div className="flex items-center gap-2 sm:gap-4">
           <ModeToggle />
           <Button asChild variant="destructive" className="hidden sm:inline-flex">
-            <Link href="/#contact">Book a Repair</Link>
+            <Link href="#contact">Book a Repair</Link>
           </Button>
           <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
             <SheetTrigger asChild>
@@ -91,15 +99,15 @@ export default function Header() {
                      <Link
                         key={link.name}
                         href={link.href}
-                        onClick={closeSheet}
+                        onClick={handleLinkClick}
                         className="block rounded-md px-3 py-2 text-base font-medium text-foreground/80 hover:bg-muted hover:text-primary"
                       >
                         {link.name}
                       </Link>
                   ))}
                 </nav>
-                 <Button asChild variant="destructive" onClick={closeSheet}>
-                    <Link href="/#contact">Book a Repair</Link>
+                 <Button asChild variant="destructive" onClick={handleLinkClick}>
+                    <Link href="#contact">Book a Repair</Link>
                 </Button>
               </div>
             </SheetContent>
