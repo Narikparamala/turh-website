@@ -37,7 +37,12 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
-  const handleLinkClick = () => {
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const targetElement = document.querySelector(href);
+    if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
     // We use a short timeout to allow the browser to navigate to the anchor
     // before the sheet is closed, which can interrupt the navigation.
     setTimeout(() => {
@@ -54,7 +59,7 @@ export default function Header() {
     >
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2 font-bold text-lg text-primary">
-           <Image src="https://res.cloudinary.com/doourcehz/image/upload/v1763010912/download_2_a9dg1h.jpg" alt="Tirupati Universal Repair Hub Logo" width={50} height={50} className="rounded-full"/>
+           <Image src="https://res.cloudinary.com/doourcehz/image/upload/v1763010912/download_2_a9dg1h.jpg" alt="Tirupati Universal Repair Hub Logo" width={50} height={50} className="rounded-full" priority/>
           <span className='hidden sm:inline'>Tirupati Universal Repair Hub</span>
           <span className='sm:hidden font-semibold'>T.U.R.H.</span>
         </Link>
@@ -99,14 +104,14 @@ export default function Header() {
                      <Link
                         key={link.name}
                         href={link.href}
-                        onClick={handleLinkClick}
+                        onClick={(e) => handleLinkClick(e, link.href)}
                         className="block rounded-md px-3 py-2 text-base font-medium text-foreground/80 hover:bg-muted hover:text-primary"
                       >
                         {link.name}
                       </Link>
                   ))}
                 </nav>
-                 <Button asChild variant="destructive" onClick={handleLinkClick}>
+                 <Button asChild variant="destructive" onClick={() => setIsSheetOpen(false)}>
                     <Link href="#contact">Book a Repair</Link>
                 </Button>
               </div>
